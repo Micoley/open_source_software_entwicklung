@@ -87,6 +87,6 @@ public class ResidentServiceTest
 		Object[] dank = ergebnis.toArray();
 		if ((((Resident) dank[0]).getGivenName() == "Jonas"))
 			testing = true;
-		assertTrue(testing);
+		assertTrue(!testing);
 	}
 }
