@@ -21,9 +21,12 @@ public class BaseResidentService implements ResidentService {
   }
   
   /**
-   * 
-   * 
-   * 
+   * GetUniqueResident überprüft zunächst ob der mitgegebene Resident Wildcards im Namen besitzt.
+   * Falls ja wird eine ResidentServiceExcepton geworfen.
+   * Anschließend wird mithilfe von getFileredResidentsList eine gefilterte Liste mithilfe des
+   * filterResident. Falls die Größe der Liste welche zurückgegeben wird 1 beträgt ist der Resident
+   * eindeutig und kann als Return zurückgegeben werden.
+   * Falls nicht ist die Suche nicht eindeutig und somit wird eine ResidentServiceException geworfen.
    */
   public Resident getUniqueResident(Resident filterResident) throws ResidentServiceException {
     if (containsWildcards(filterResident)) {
@@ -38,6 +41,12 @@ public class BaseResidentService implements ResidentService {
   }
 
   /**
+   * getFilteredResidentsList erzeugt sich zunächst eine neue ArrayList<Resident> in welcher die
+   * gefilterten Residents gespeichert werden können.
+   * 
+   * Hierfür wird als nächstes der Vorname, Nachname und Straßenname in Patterns als Regex 
+   * gespeichert.
+   * 
    * 
    * 
    */
